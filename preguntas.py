@@ -101,9 +101,8 @@ def pregunta_04():
     from sklearn.pipeline import Pipeline
     from sklearn.naive_bayes import BernoulliNB
 
-
     # Cargue las variables.
-    x_train, x_test, y_train, y_test = pregunta_02()
+    x_train, x_test_, y_train, y_test = pregunta_02()
 
     # Obtenga el analizador de la pregunta 3.
     analyzer = pregunta_03()
@@ -113,11 +112,11 @@ def pregunta_04():
     # límite superior para la frecuencia de palabras es del 100% y un límite
     # inferior de 5 palabras. Solo deben analizarse palabras conformadas por
     # letras.
-    countVectorizer = countVectorizer(
+    countVectorizer = CountVectorizer(
         analyzer=analyzer,
         lowercase=True,
-        stop_words='english',
-        token_pattern='word',
+        stop_words="english",
+        token_pattern="word",
         binary=True,
         max_df=1.0,
         min_df=5,
@@ -140,9 +139,9 @@ def pregunta_04():
 
     # Defina una instancia de GridSearchCV con el pipeline y el diccionario de
     # parámetros. Use cv = 5, y "accuracy" como métrica de evaluación
-    gridSearchCV=GridSearchCV(
-        estimator=pipeline,
-        param_grid=param_grid,
+    gridSearchCV = GridSearchCV(
+        estimator= pipeline,
+        param_grid= param_grid,
         cv=5,
         scoring="accuracy",
     )
