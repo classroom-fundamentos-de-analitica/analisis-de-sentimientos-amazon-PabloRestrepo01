@@ -103,7 +103,7 @@ def pregunta_04():
 
 
     # Cargue las variables.
-    x_train, x_prueba, y_train, y_prueba = pregunta_02()
+    x_train, x_test, y_train, y_test = pregunta_02()
 
     # Obtenga el analizador de la pregunta 3.
     analyzer = pregunta_03()
